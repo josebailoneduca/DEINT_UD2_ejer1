@@ -9,7 +9,7 @@ package dibujos;
 import java.awt.Color;
 
 /**
- *
+ * Lista de colores para los dibujos
  * @author Jose Javier Bailon Ortiz
  */
 public enum Colores {

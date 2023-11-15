@@ -44,7 +44,7 @@ public class VPrincipal extends javax.swing.JFrame{
         btnCoche = new javax.swing.JButton();
         btnCasa = new javax.swing.JButton();
         btnPaisaje = new javax.swing.JButton();
-        btnSorpresa = new javax.swing.JButton();
+        btnKenny = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         lienzo = new gui.Lienzo();
 
@@ -88,13 +88,13 @@ public class VPrincipal extends javax.swing.JFrame{
         });
         panelBotonera.add(btnPaisaje);
 
-        btnSorpresa.setText("SORPRESA");
-        btnSorpresa.addActionListener(new java.awt.event.ActionListener() {
+        btnKenny.setText("KENNY");
+        btnKenny.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSorpresaActionPerformed(evt);
+                btnKennyActionPerformed(evt);
             }
         });
-        panelBotonera.add(btnSorpresa);
+        panelBotonera.add(btnKenny);
 
         btnLimpiar.setText("LIMPIAR");
         btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -153,39 +153,60 @@ public class VPrincipal extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    /**
+     * Ordena a la logica limpiar los objetos a dibujar
+     * @param evt 
+     */
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         Logica.limpiar();
         lienzo.repaint();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
+    /**
+     * Ordena a la logica agregar una casa
+     * @param evt 
+     */
     private void btnCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasaActionPerformed
         Logica.addCasa();
         lienzo.repaint();
                 
     }//GEN-LAST:event_btnCasaActionPerformed
 
+    /**
+     * Ordena a la logica agregar el paisaje
+     * @param evt 
+     */
     private void btnPaisajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaisajeActionPerformed
            Logica.addPaisaje();
         lienzo.repaint();
     }//GEN-LAST:event_btnPaisajeActionPerformed
 
+    /**
+     * Ordena a la logica agregar el coche
+     * @param evt 
+     */
     private void btnCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCocheActionPerformed
         Logica.addCoche();
         lienzo.repaint();
     }//GEN-LAST:event_btnCocheActionPerformed
 
-    private void btnSorpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorpresaActionPerformed
+    /**
+     * Ordena a la logica agregar a Kenny
+     * @param evt 
+     */
+    private void btnKennyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKennyActionPerformed
        Logica.addKenny();
          lienzo.repaint();
-    }//GEN-LAST:event_btnSorpresaActionPerformed
+    }//GEN-LAST:event_btnKennyActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCasa;
     private javax.swing.JButton btnCoche;
+    private javax.swing.JButton btnKenny;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnPaisaje;
-    private javax.swing.JButton btnSorpresa;
     private javax.swing.JPanel jPanel2;
     private gui.Lienzo lienzo;
     private javax.swing.JPanel panelBotonera;

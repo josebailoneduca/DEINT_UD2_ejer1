@@ -6,17 +6,15 @@ Lista de paquetes:
  */
 package gui;
 
-import dibujos.Casa;
 import dibujos.Dibujo;
-import dibujos.Fondo;
-import dibujos.Kenny;
 import java.awt.Graphics;
-import java.awt.Rectangle;
 import java.util.ArrayList;
 import logica.Logica;
 
 /**
- *
+ * Clase que hara de lienzo. En su método paintComponent (sobreescrito) se recoge
+ * el array de dibujos a mostrar. Actualiza el valor de ancho y alto del lienzo
+ * y los dibuja
  * @author Jose Javier Bailon Ortiz
  */
 public class Lienzo extends javax.swing.JPanel {
@@ -31,15 +29,20 @@ public class Lienzo extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        
+        //recoger dimensiones del lienzo
         int ancho=this.getWidth();
         int alto=this.getHeight();
+        //recoger dibujos
        ArrayList<Dibujo> dibujos = Logica.getDibujos();
+       
+       //iterar por los dibujos actualizando el valor de dimensiones del lienzo
         for (Dibujo dibujo : dibujos) {
             dibujo.setLienzoAncho(ancho);
             dibujo.setLienzoAlto(alto);
+            //dibujar
             dibujo.dibujar(g);
         }
-
      }
 
    

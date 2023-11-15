@@ -20,21 +20,76 @@ import java.util.ArrayList;
  */
 public class Logica {
 
+    /**
+     * Almacena la lista de dibujos a mostrar
+     */
     static private ArrayList<Dibujo> dibujos = new ArrayList<Dibujo>();
 
+    /**
+     * Almacena la cantidad de casas agregadas
+     */
     static int casas=0;
     
-    public static void addDibujo(Dibujo d,int plano) {
-        dibujos.add(d);
-    }
+ 
     
     
-    
+    /**
+     * Devuelve la lista de dibujos
+     * @return  La lista de dibujos
+     */
     public static ArrayList<Dibujo> getDibujos() {
         return dibujos;
     }
 
+
     /**
+     * Agregar paisaje. Como va a taparlo todo quitamos lo que hay en la lista
+     */
+    public static void addPaisaje() {
+        dibujos.clear();
+         casas=0;
+        dibujos.add(new Fondo());
+    }
+
+    /**
+     * Limpiar la lista de dibujos
+     */
+    public static void limpiar() {
+        casas=0;
+    dibujos.clear();    
+    }
+
+    /**
+     * Agregar casa donde toca. Segun las casas ya agregadas la nueva
+     * se desfasa en x un valor superior
+     */
+    public static void addCasa() {
+        Casa c = new Casa(100,400);
+        c.setX(c.getX()+(casas*400));
+        dibujos.add(c);
+        casas++;
+    }
+
+    /**
+     * Agregar coche a la lista de dibujos
+     */
+    public static void addCoche() {
+        Coche c = new Coche(400,450);
+        dibujos.add(c);
+    }
+
+    /**
+     * Agrega a Kenny a la lista de dibujos
+     */
+    public static void addKenny() {
+                
+        Kenny k = new Kenny(250,500);
+        dibujos.add(k);
+    }
+    
+    
+     /**
+      * INICIO DEL PROGRAMA. MUESTRA LA VENTANA
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -67,46 +122,5 @@ public class Logica {
                 new VPrincipal().setVisible(true);
             }
         });
-    }
-
-    /**
-     * Agregar paisaje. Como va a taparlo todo quitamos lo que hay
-     */
-    public static void addPaisaje() {
-        dibujos.clear();
-         casas=0;
-        dibujos.add(new Fondo());
-    }
-
-    /**
-     * Limpiar la lista de dibujos
-     */
-    public static void limpiar() {
-        casas=0;
-    dibujos.clear();    
-    }
-
-    /**
-     * Agregar casa donde toca
-     */
-    public static void addCasa() {
-        Casa c = new Casa(100,400);
-        c.setX(c.getX()+(casas*400));
-        dibujos.add(c);
-        casas++;
-    }
-
-    /**
-     * Agregar coche a la lista de dibujos
-     */
-    public static void addCoche() {
-        Coche c = new Coche(400,450);
-        dibujos.add(c);
-    }
-
-    public static void addKenny() {
-                
-        Kenny k = new Kenny(250,500);
-        dibujos.add(k);
     }
 }

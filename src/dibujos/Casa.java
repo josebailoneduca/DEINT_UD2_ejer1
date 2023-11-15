@@ -29,14 +29,17 @@ public class Casa extends Dibujo {
         //estructura
         g.setColor(Colores.MARRON_LADRILLO.color);
         g.fillRect(escalarY(x), escalarY(y-239),escalarY(207), escalarY(239));
+        
         //TEJADO
         g.setColor(Colores.ROJO_TEJA.color);
         int[]tx={escalarY(x-14),escalarY(x+14),escalarY(x+195),escalarY(x+227)};
         int[]ty={escalarY(y-237),escalarY(y-309),escalarY(y-309),escalarY(y-237)};
         g.fillPolygon(tx, ty, tx.length);
+        
         //chimenea
         g.setColor(Colores.MARRON_LADRILLO.color);
         g.fillRect(escalarY(x+128), escalarY(y-333),escalarY(30), escalarY(80));
+        
         //puerta
         g.setColor(Colores.MARRON_ARBOL.color);
         g.fillRoundRect(escalarY(x+125), escalarY(y-100), escalarY(45),escalarY(100),escalarY(5), escalarY(5));
@@ -51,14 +54,18 @@ public class Casa extends Dibujo {
 
     
     private void ventana(Graphics g,int vx, int vy){
+    //cristal
     g.setColor(Color.WHITE);
     g.fillRoundRect(escalarY(vx+x), escalarY(vy+y), escalarY(50),escalarY(50),escalarY(5), escalarY(5));
-
+    
+    //marco
     g.setColor(Colores.MARRON_ARBOL.color);
     Graphics2D g2 = (Graphics2D)g;
     Stroke strokeanterior= g2.getStroke();
     g2.setStroke(new BasicStroke(escalarY(5)));
     g.drawRoundRect(escalarY(vx+x), escalarY(vy+y), escalarY(50),escalarY(50),escalarY(5), escalarY(5));
+    
+    //division
     g.drawLine(escalarY(vx+x), escalarY(vy+y+25),escalarY(vx+x+50), escalarY(vy+y+25));
     g2.setStroke(strokeanterior);
     }

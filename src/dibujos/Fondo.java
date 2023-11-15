@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class Fondo extends Dibujo{
 
     public Fondo( ) {
-        super(0, 0,800, 600);
+        super(0, 0);
     }
 
     
@@ -32,7 +32,6 @@ public class Fondo extends Dibujo{
         int tercio=this.lienzoAlto/3;
         int dosTercios= this.lienzoAlto/3*2;
         int tresQuintos=quinto*3;
-        int dosQuintos=quinto*2;
         if (decimo<1)decimo=1;
         if (quinto<1)quinto=1;
         if (tercio<1)tercio=1;
@@ -48,6 +47,10 @@ public class Fondo extends Dibujo{
         g.fillOval(tercio, 10, quinto, quinto);
         
         //montañas
+        //Se calcula las posiciones de los puntos siendo uno a una altura y otro a otra
+        //creando asi picos. Luego cada pico se desfasa verticalmente por un valor 
+        //proporcionado al seno de x para crear variedad
+        //se dibujan picos hasta rebasar el tamaño del lienzo
         ArrayList<Integer> px = new ArrayList<Integer>();
         ArrayList<Integer> py = new ArrayList<Integer>();
         px.add(0);
@@ -68,14 +71,14 @@ public class Fondo extends Dibujo{
             }
             xm+=decimo;
         }
-        
         px.add(this.lienzoAncho);
         py.add(dosTercios);
         
-        
+        //transformar el arraylist<Integer> en int[]
         int[] puntosEX=px.stream().mapToInt(Integer::valueOf).toArray();
         int[] puntosEY=py.stream().mapToInt(Integer::valueOf).toArray();       
         
+        //pintar el poligonod e las montanas
         g.setColor(Colores.MARRON_MONTANA.color); 
         g.fillPolygon(puntosEX, puntosEY, puntosEX.length);
         
@@ -83,7 +86,7 @@ public class Fondo extends Dibujo{
         g.setColor(Colores.VERDE.color);
        g.fillRect(0, tresQuintos, this.lienzoAncho, this.lienzoAlto-quinto);
        
-       //arboles
+       //arboles. Se dibujan hasta rebasar el ancho del lienzo
         salir=false;
          int nArb=0;
         while (!salir){
@@ -96,12 +99,18 @@ public class Fondo extends Dibujo{
         }
     }
 
+    /**
+     * Dibuja un arbol
+     * @param g Contexto
+     * @param vx desfase en x
+     * @param vy desfase en y
+     */
     private void arbol(Graphics g,int vx, int vy){
-        int radio = 40;
         //tronco
         g.setColor(Colores.MARRON_ARBOL.color);
         g.fillRect(escalarY(vx), escalarY(vy-117), escalarY(20),escalarY(117));
         //copa 
+        int radio = 40;
         int[]cx={-17,38,-7,-6,-36,53};
         int[]cy={-140,-137,-187,-245,-193,-209};
         g.setColor(Color.GREEN);
