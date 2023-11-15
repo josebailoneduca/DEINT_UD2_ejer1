@@ -9,6 +9,7 @@ package gui;
 import dibujos.Casa;
 import dibujos.Dibujo;
 import dibujos.Fondo;
+import dibujos.Kenny;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.util.ArrayList;
@@ -38,8 +39,7 @@ public class Lienzo extends javax.swing.JPanel {
             dibujo.setLienzoAlto(alto);
             dibujo.dibujar(g);
         }
-        
-        
+
      }
 
    

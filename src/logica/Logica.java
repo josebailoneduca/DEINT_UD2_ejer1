@@ -7,8 +7,10 @@ Lista de paquetes:
 package logica;
 
 import dibujos.Casa;
+import dibujos.Coche;
 import dibujos.Dibujo;
 import dibujos.Fondo;
+import dibujos.Kenny;
 import gui.VPrincipal;
 import java.util.ArrayList;
 
@@ -67,20 +69,44 @@ public class Logica {
         });
     }
 
+    /**
+     * Agregar paisaje. Como va a taparlo todo quitamos lo que hay
+     */
     public static void addPaisaje() {
         dibujos.clear();
+         casas=0;
         dibujos.add(new Fondo());
     }
 
+    /**
+     * Limpiar la lista de dibujos
+     */
     public static void limpiar() {
         casas=0;
     dibujos.clear();    
     }
 
+    /**
+     * Agregar casa donde toca
+     */
     public static void addCasa() {
         Casa c = new Casa(100,400);
         c.setX(c.getX()+(casas*400));
         dibujos.add(c);
         casas++;
+    }
+
+    /**
+     * Agregar coche a la lista de dibujos
+     */
+    public static void addCoche() {
+        Coche c = new Coche(400,450);
+        dibujos.add(c);
+    }
+
+    public static void addKenny() {
+                
+        Kenny k = new Kenny(250,500);
+        dibujos.add(k);
     }
 }

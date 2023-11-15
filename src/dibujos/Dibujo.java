@@ -9,7 +9,7 @@ package dibujos;
 import java.awt.Graphics;
 
 /**
- *
+ * Clase básica de dibujo. Tiene referencias a posicion x,y escalax,y(basadas en el tamaño de lienzo respecto a la referencia 800x600)
  * @author Jose Javier Bailon Ortiz
  */
 public class Dibujo {
@@ -23,7 +23,6 @@ public class Dibujo {
     protected float escalay;
     protected int lienzoAncho;
     protected int lienzoAlto;
-    protected int capa;
 
     public Dibujo() {
         x = 0;
@@ -32,7 +31,6 @@ public class Dibujo {
         escalay=1;
         lienzoAncho=800;
         lienzoAlto=600;
-        capa=1;
     }
 
     public Dibujo(int x, int y) {
@@ -42,7 +40,6 @@ public class Dibujo {
         this.escalay = 1;
         this.lienzoAlto = 800;
         this.lienzoAncho = 600;
-        capa=1;
     }
 
     public Dibujo(int x, int y, int escala) {
@@ -52,7 +49,6 @@ public class Dibujo {
         this.escalay=escala;
         this.lienzoAlto = 800;
         this.lienzoAncho = 600;
-        capa=1;
     }
 
     public Dibujo(int x, int y,int lienzoAncho, int lienzoAlto) {
@@ -92,20 +88,29 @@ public class Dibujo {
         return lienzoAlto;
     }
 
-    public int getPlano() {
-        return capa;
-    }
+ 
 
+    /**
+     * Establece el ancho de lienzo y recalcula la escala respecto a la referencia 800
+     * @param lienzoAncho El ancho a establecer 
+     */
     public void setLienzoAncho(int lienzoAncho) {
         this.lienzoAncho = lienzoAncho;
         this.escalax=((float)this.lienzoAncho)/(float)refLienzoX;
     }
+
+     /**
+     * Establece el alto de lienzo y recalcula la escala respecto a la referencia 600
+     * @param lienzoAlto El alto a establecer 
+     */
 
     public void setLienzoAlto(int lienzoAlto) {
         this.lienzoAlto = lienzoAlto;
         this.escalay=((float)this.lienzoAlto)/(float)refLienzoY;
     }
 
+    
+    
     public void setX(int x) {
         this.x = x;
     }
@@ -115,13 +120,31 @@ public class Dibujo {
     }
 
     
+    
+    /**
+     * Recalcula una coordenada respecto a la escala horizontal del lienzo
+     * @param px coordenada a transformar
+     * @return  la coordenada transformada
+     */
     protected int escalarX(int px){
         return (int) (px*escalax);
     }
+
+
+    /**
+     * Recalcula una coordenada respecto a la escala vertical del lienzo
+     * @param px coordenada a transformar
+     * @return  la coordenada transformada
+     */
     
     protected int escalarY(int py){
         return (int) (py*escalay);
     }    
+    
+    /**
+     * Dibujar en un contexto grafico
+     * @param g  El contexto en el que dibujar
+     */
     public void dibujar(Graphics g) {
     }
 }//end Dibujo

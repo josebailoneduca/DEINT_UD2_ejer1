@@ -65,6 +65,11 @@ public class VPrincipal extends javax.swing.JFrame{
         panelBotonera.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
 
         btnCoche.setText("COCHE");
+        btnCoche.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCocheActionPerformed(evt);
+            }
+        });
         panelBotonera.add(btnCoche);
 
         btnCasa.setText("CASA");
@@ -84,6 +89,11 @@ public class VPrincipal extends javax.swing.JFrame{
         panelBotonera.add(btnPaisaje);
 
         btnSorpresa.setText("SORPRESA");
+        btnSorpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSorpresaActionPerformed(evt);
+            }
+        });
         panelBotonera.add(btnSorpresa);
 
         btnLimpiar.setText("LIMPIAR");
@@ -145,7 +155,7 @@ public class VPrincipal extends javax.swing.JFrame{
 
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         Logica.limpiar();
- lienzo.repaint();
+        lienzo.repaint();
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasaActionPerformed
@@ -158,6 +168,16 @@ public class VPrincipal extends javax.swing.JFrame{
            Logica.addPaisaje();
         lienzo.repaint();
     }//GEN-LAST:event_btnPaisajeActionPerformed
+
+    private void btnCocheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCocheActionPerformed
+        Logica.addCoche();
+        lienzo.repaint();
+    }//GEN-LAST:event_btnCocheActionPerformed
+
+    private void btnSorpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSorpresaActionPerformed
+       Logica.addKenny();
+         lienzo.repaint();
+    }//GEN-LAST:event_btnSorpresaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
