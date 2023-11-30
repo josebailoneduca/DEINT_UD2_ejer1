@@ -13,7 +13,7 @@ import java.awt.Graphics;
  * Tambien escalax,y(basadas en el tamaño de lienzo respecto a la referencia 800x600)
  * @author Jose Javier Bailon Ortiz
  */
-public class Dibujo {
+public abstract class Dibujo {
 /**
  * Valores predeterminados de dimensiones del lienzo.
  * A partir de estos valores se calcula la escala horizontal y vertical
@@ -164,6 +164,5 @@ public class Dibujo {
      * 
      * @param g  El contexto en el que dibujar
      */
-    public void dibujar(Graphics g) {
-    }
+    public abstract void dibujar(Graphics g); 
 }//end Dibujo
